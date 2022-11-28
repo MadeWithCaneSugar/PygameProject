@@ -17,7 +17,7 @@ class PLAYER:
             pygame.draw.rect(config.screen, (0,0,255), block_rect)
 
     def move(self):
-        body_copy = self.body[:]
+        body_copy = self.body[:-1]
         # removing the -1 in the above line is the one thing between snake and Tron 
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]

@@ -11,6 +11,7 @@ clock = config.clock
 # have to initialize this as a variable. Idk why, but it won't display properly if you don't
 point = point.POINT()
 player = player.PLAYER()
+computer = computer.COMPUTER()
 
 # updating the screen at a set time intervals in ms
 screen_update = pygame.USEREVENT
@@ -57,11 +58,12 @@ while True:
                     player.direction = Vector2(1, 0)
 
     # changing the background screen color
-    screen.fill((175,215,70))
+    screen.fill((0,0,0))
 
     # drawing the point using the variable I assigned outside of the loop
     point.draw_point()
     player.draw_player()
+    computer.draw_computer()
 
     # drawing elements
     pygame.display.update()
