@@ -40,11 +40,22 @@ class PLAYER:
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
 
+    # code for colliding with walls and ribbons, your own or otherwise
+    def collision(self):
+        pass
+
+class COMPUTER:
+    def __init__(self) -> None:
+        pass
+
+    def draw_computer(self):
+        pass
+
 ###################################################################################################
 
 pygame.init()
-cell_size = 5
-cell_number = 200
+cell_size = 10
+cell_number = 100
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
 
@@ -70,15 +81,31 @@ while True:
             player.move()
 
         # keyboard inputs
+        # 2nd nested if statement is to stop perfect 180s
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                player.direction = Vector2(0, -1)
+                if player.direction == Vector2(0, 1):
+                    pass
+                else:
+                    player.direction = Vector2(0, -1)
+
             if event.key == pygame.K_DOWN:
-                player.direction = Vector2(0, 1)
+                if player.direction == Vector2(0, -1):
+                    pass
+                else:
+                    player.direction = Vector2(0, 1)
+
             if event.key == pygame.K_LEFT:
-                player.direction = Vector2(-1, 0)
+                if player.direction == Vector2(1, 0):
+                    pass
+                else:
+                    player.direction = Vector2(-1, 0)
+
             if event.key == pygame.K_RIGHT:
-                player.direction = Vector2(1, 0)
+                if player.direction == Vector2(-1, 0):
+                    pass
+                else:
+                    player.direction = Vector2(1, 0)
 
     # changing the background screen color
     screen.fill((175,215,70))
