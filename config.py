@@ -10,6 +10,9 @@ cell_number = 100
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
 
+# setting how quickly the screen updates in ms (lower number means faster updates)
+max_speed = 50
+
 # maximum frame rate of the game.
 # no easily implemented minimum unfortunately
 max_frames = clock.tick(60)

@@ -23,8 +23,5 @@ class COMPUTER:
         self.body = body_copy[:]
 
     def computer_target(self):
-        pass
-
-    # code for colliding with walls and ribbons, your own or otherwise
-    def collision(self):
+        # should be used for computer algorithm
         pass

@@ -1,4 +1,5 @@
-import pygame, random, config
+import pygame, random
+import config
 from pygame.math import Vector2
 
 # making a class for the player that will be controlled
@@ -22,6 +23,8 @@ class PLAYER:
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
 
-    # code for colliding with walls and ribbons, your own or otherwise
-    def collision(self):
-        pass
+    # probably not necessary, just check for collisions in main so I don't have to duplicate this
+    # code for computer
+    # # code for colliding with walls and ribbons, your own or otherwise
+    # def collision(self):
+    #     pass
