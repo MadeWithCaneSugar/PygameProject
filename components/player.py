@@ -22,7 +22,7 @@ class PLAYER:
         # removing the -1 in the above line is the one thing between snake and Tron 
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
-
+    
     # probably not necessary, just check for collisions in main so I don't have to duplicate this
     # code for computer
     # # code for colliding with walls and ribbons, your own or otherwise
