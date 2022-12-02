@@ -13,6 +13,7 @@ class MAIN:
         self.player.move()
         self.computer.move()
         self.check_collision()
+        self.computer.computer_target(self.point.pos[0], self.point.pos[1])
 
     def draw_elements(self):
         self.point.draw_point()
@@ -40,10 +41,10 @@ class MAIN:
         if self.point.pos == self.player.body[0]:
             print("player point")
             self.point.randomize()
-            self.player.add_block()
+            # self.player.add_block()
 
 
         if self.point.pos == self.computer.body[0]:
             print("computer point")
             self.point.randomize
-            self.computer.add_block
+            # self.computer.add_block

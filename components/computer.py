@@ -22,6 +22,12 @@ class COMPUTER:
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
 
-    def computer_target(self):
-        # should be used for computer algorithm
-        pass
+    def computer_target(self, dx, dy):
+        if self.body[0][0] > dx:
+            self.direction = Vector2(-1, 0)
+        if self.body[0][0] < dx:
+            self.direction = Vector2(1, 0)
+        if self.body[0][1] > dy:
+            self.direction = Vector2(0, -1)
+        if self.body[0][1] < dy:
+            self.direction = Vector2(0, 1)
