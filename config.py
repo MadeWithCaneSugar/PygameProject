@@ -3,8 +3,8 @@ import pygame
 # this is the config file that defines many of the fundamental values used in the game
 
 # determines the size of the playfield as well as how many divisions it's made of
-cell_size = 10
-cell_number = 100
+cell_size = 20
+cell_number = 40
 
 # some initialization applying the size
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))

@@ -7,6 +7,7 @@ class PLAYER:
     def __init__(self) -> None:
         self.body = [Vector2(5, 10), Vector2(6, 10), Vector2(7, 10)]
         self.direction = Vector2(1,0)
+        self.new_block = False
     
     def draw_player(self):
         for block in self.body:
@@ -17,14 +18,29 @@ class PLAYER:
             # drawing a rectangle
             pygame.draw.rect(config.screen, (0,0,255), block_rect)
 
+    def player_target(self, dx, dy):
+        if self.body[0][0] > dx:
+            self.direction = Vector2(-1, 0)
+        if self.body[0][0] < dx:
+            self.direction = Vector2(1, 0)
+        if self.body[0][1] > dy:
+            self.direction = Vector2(0, -1)
+        if self.body[0][1] < dy:
+            self.direction = Vector2(0, 1)
+
+    def player_demo(self):
+        self.player_target(self.point.pos[0], self.point.pos[1])
+
     def move(self):
-        body_copy = self.body[:-1]
-        # removing the -1 in the above line is the one thing between snake and Tron 
-        body_copy.insert(0, body_copy[0] + self.direction)
-        self.body = body_copy[:]
-    
-    # probably not necessary, just check for collisions in main so I don't have to duplicate this
-    # code for computer
-    # # code for colliding with walls and ribbons, your own or otherwise
-    # def collision(self):
-    #     pass
+        if self.new_block == True:
+            body_copy = self.body[:]
+            body_copy.insert(0, body_copy[0] + self.direction)
+            self.body = body_copy[:]
+            self.new_block = False
+        else:
+            body_copy = self.body[:-1]
+            body_copy.insert(0, body_copy[0] + self.direction)
+            self.body = body_copy[:]
+
+    def add_block(self):
+        self.new_block = True
