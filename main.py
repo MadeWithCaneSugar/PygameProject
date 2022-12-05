@@ -16,7 +16,7 @@ class MAIN:
         self.player.move()
         # self.computer.move()
         self.check_player_collision()
-        # self.player.player_target(self.point.pos[0], self.point.pos[1])
+        self.player.player_target(self.point.pos[0], self.point.pos[1])
         self.check_fail()
         # self.check_computer_collision()
         # self.computer.computer_target(self.point.pos[0], self.point.pos[1])

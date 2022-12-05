@@ -11,6 +11,7 @@ class PLAYER:
         self.direction = Vector2(1,0)
         self.new_block = False
 
+        # NOT DOING CORNERS, NO GODDAMN TIME
         self.snake_head_right = config.snake_head_sprite
         self.snake_head_left = pygame.transform.rotate(config.snake_head_sprite, 180)
         self.snake_head_up = pygame.transform.rotate(config.snake_head_sprite, 90)
@@ -26,24 +27,23 @@ class PLAYER:
     
     def draw_player(self):
         self.update_head_graphics()
+        self.update_butt_graphics()
 
         for index, block in enumerate(self.body):
             y_pos = block.y * config.cell_size
             x_pos = block.x * config.cell_size
             block_rect = pygame.Rect(x_pos, y_pos, config.cell_size, config.cell_size)
-
             if index == 0:
                 screen.blit(self.head, block_rect)
+            elif index == len(self.body) - 1:
+                screen.blit(self.butt, block_rect)
             else:
-                pygame.draw.rect(screen, (150,100,100), block_rect)
-
-
-            # # creating a rectangle
-            # y_pos = block.y * config.cell_size
-            # x_pos = block.x * config.cell_size
-            # block_rect = pygame.Rect(x_pos, y_pos, config.cell_size, config.cell_size)
-            # # drawing a rectangle
-            # pygame.draw.rect(config.screen, (0,0,255), block_rect)
+                previous_block = self.body[index + 1] - block
+                next_block = self.body[index - 1] - block
+                if previous_block.x == next_block.x:
+                    screen.blit(self.snake_body_vertical, block_rect)
+                if previous_block.y == next_block.y:
+                    screen.blit(self.snake_body_horizontal, block_rect)
 
     def player_target(self, dx, dy):
         if self.body[0][0] > dx:
@@ -77,14 +77,32 @@ class PLAYER:
     def update_head_graphics(self):
         head_relation = self.body[1] - self.body[0]
         if head_relation == Vector2(1,0):
-            print("left")
             self.head = self.snake_head_left
         elif head_relation == Vector2(-1,0):
-            print("right")
             self.head = self.snake_head_right
         elif head_relation == Vector2(0,1):
-            print("up")
             self.head = self.snake_head_up
         elif head_relation == Vector2(0,-1):
-            print("down")
             self.head = self.snake_head_down
+
+    def update_butt_graphics(self):
+        butt_relation = self.body[-1] - self.body[-2]
+        if butt_relation == Vector2(1,0):
+            self.butt = self.snake_butt_left
+        elif butt_relation == Vector2(-1,0):
+            self.butt = self.snake_butt_right
+        elif butt_relation == Vector2(0,1):
+            self.butt = self.snake_butt_up
+        elif butt_relation == Vector2(0,-1):
+            self.butt = self.snake_butt_down
+            
+    def update_body_graphics(self):
+        body_relation = self.body[1] - self.body[-2]
+        if body_relation == Vector2(1,0):
+            self.body = self.snake_body_left
+        elif body_relation == Vector2(-1,0):
+            self.body = self.snake_body_right
+        elif body_relation == Vector2(0,1):
+            self.body = self.snake_body_up
+        elif body_relation == Vector2(0,-1):
+            self.body = self.snake_body_down

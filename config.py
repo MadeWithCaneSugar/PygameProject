@@ -11,11 +11,11 @@ screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_si
 clock = pygame.time.Clock()
 
 # setting how quickly the screen updates in ms (lower number means faster updates)
-max_speed = 100
+max_speed = 150
 
 # maximum frame rate of the game.
 # no easily implemented minimum unfortunately
-max_frames = clock.tick(60)
+max_frames = clock.tick(30)
 
 # sprites
 point_sprite = pygame.transform.scale(pygame.image.load("./graphics/point.png").convert_alpha(), (cell_size, cell_size))
