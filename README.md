@@ -13,3 +13,7 @@ It is a game written in Python using pygame that should have some of the followi
 Due to the massive similarities between how a snake functions and how a lightbike functions, the line is a thin one.
 
 The only major difference is that a snake has a finite tail, and a lightbike has an infinite tail.
+
+## Final Note as of Dec 4th 2022
+
+Admittedly in the pursuit of a quick throwtogether that would work for a a final project submission, I have neglected to make any recent changes to the readme. That's my bad. Even this edit has occured after submission. Oh well I suppose
