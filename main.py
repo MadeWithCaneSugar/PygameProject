@@ -16,6 +16,7 @@ class MAIN:
         self.player.move()
         # self.computer.move()
         self.check_player_collision()
+        # self.player.player_target(self.point.pos[0], self.point.pos[1])
         self.check_fail()
         # self.check_computer_collision()
         # self.computer.computer_target(self.point.pos[0], self.point.pos[1])
@@ -54,6 +55,11 @@ class MAIN:
         # checking if the snake strikes a wall
         if (not 0 <= self.player.body[0].x <= cell_number) or (not 0 <= self.player.body[0].y <= cell_number):
             self.game_over()
+
+        # checking if the snake strikes itself
+        for block in self.player.body[1:]:
+            if block  == self.player.body[0]:
+                self.game_over()
 
     def game_over(self):
         pygame.quit()

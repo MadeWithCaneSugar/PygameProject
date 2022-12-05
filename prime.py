@@ -56,7 +56,7 @@ while True:
                     main_game.player.direction = Vector2(1, 0)
 
     # changing the background screen color
-    screen.fill((0,0,0))
+    screen.fill((255,255,255))
 
     main_game.draw_elements()
 
