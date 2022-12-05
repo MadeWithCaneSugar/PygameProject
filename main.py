@@ -3,6 +3,7 @@ from components import player, computer, point
 
 cell_size = config.cell_size
 cell_number = config.cell_number
+game_font = config.game_font
 
 tile = config.tile_sprite
 screen = config.screen
@@ -19,13 +20,14 @@ class MAIN:
         self.player.move()
         # self.computer.move()
         self.check_player_collision()
-        self.player.player_target(self.point.pos[0], self.point.pos[1])
+        # self.player.player_target(self.point.pos[0], self.point.pos[1])
         self.check_fail()
         # self.check_computer_collision()
         # self.computer.computer_target(self.point.pos[0], self.point.pos[1])
 
     def draw_elements(self):
         self.draw_tiles()
+        self.draw_score()
         self.point.draw_point()
         self.player.draw_player()
         # self.computer.draw_computer()
@@ -70,8 +72,15 @@ class MAIN:
         sys.exit()
 
     def draw_tiles(self):
-
         for row in range(cell_number):
             for col in range(cell_number):
                     tile_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
                     screen.blit(tile, tile_rect)
+
+    def draw_score(self):
+        score_text = str(len(self.player.body) - 3)
+        score_surface = game_font.render(score_text, False, (0,0,0))
+        score_x = int(cell_size * cell_number - 60)
+        score_y = int(cell_size * cell_number - 60)
+        score_rect = score_surface.get_rect(center = (score_x, score_y))
+        screen.blit(score_surface, score_rect)

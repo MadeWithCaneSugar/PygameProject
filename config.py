@@ -10,6 +10,10 @@ cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
 
+# font
+pygame.font.init()
+game_font = pygame.font.Font("./graphics/PAPYRUS.ttf", 25)
+
 # setting how quickly the screen updates in ms (lower number means faster updates)
 max_speed = 150
 
