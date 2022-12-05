@@ -20,10 +20,12 @@ class MAIN:
         self.player.move()
         # self.computer.move()
         self.check_player_collision()
-        # self.player.player_target(self.point.pos[0], self.point.pos[1])
         self.check_fail()
         # self.check_computer_collision()
         # self.computer.computer_target(self.point.pos[0], self.point.pos[1])
+
+        ##### UNCOMMENT THE FOLLOWING LINE FOR DEMO MODE! THIS WAS GOING TO BE WHAT PLAYED ON THE WELCOME SCREEN UNDER THE START BUTTON
+        # self.player.player_target(self.point.pos[0], self.point.pos[1])
 
     def draw_elements(self):
         self.draw_tiles()
@@ -73,9 +75,11 @@ class MAIN:
 
     def draw_tiles(self):
         for row in range(cell_number):
-            for col in range(cell_number):
-                    tile_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
-                    screen.blit(tile, tile_rect)
+            if row % 2 == 0:
+                for col in range(cell_number):
+                    if col % 2 == 0:
+                        tile_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
+                        screen.blit(tile, tile_rect)
 
     def draw_score(self):
         score_text = str(len(self.player.body) - 3)

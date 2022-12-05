@@ -15,7 +15,7 @@ pygame.font.init()
 game_font = pygame.font.Font("./graphics/PAPYRUS.ttf", 25)
 
 # setting how quickly the screen updates in ms (lower number means faster updates)
-max_speed = 150
+max_speed = 120
 
 # maximum frame rate of the game.
 # no easily implemented minimum unfortunately

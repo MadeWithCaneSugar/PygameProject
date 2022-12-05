@@ -2,6 +2,15 @@ import pygame, random, config
 from pygame.math import Vector2
 from components import player
 
+# Not implemented. Ran out of time. Un-Commenting the computer code calls
+# in update in main.py will bring up a computer controlled opponent that will target
+# points and move towards them. The algorithm is a direct path that ignores any
+# obstacles, so it dies pretty quickly as the snakes get longer, but I know of some ways
+# to change this(though I haven't implemented them)
+
+# I plan on implementing this further in the future because I've been really enjoying
+# this project, but alas right now I don't have time.
+
 class COMPUTER:
     def __init__(self) -> None:
         self.body = [Vector2(10, 11), Vector2(11, 11), Vector2(12, 11)]

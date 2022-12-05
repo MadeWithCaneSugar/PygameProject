@@ -9,6 +9,9 @@ cell_number = config.cell_number
 screen = config.screen
 clock = config.clock
 
+# I didn't use your starter code because I got a bit overwhelmed by it, so I started from scratch
+# admittedly this means I never implemented the code for multiple screens. Unfortunately 
+
 # updating the screen at a set time intervals in ms
 screen_update = pygame.USEREVENT
 pygame.time.set_timer(screen_update, config.max_speed)
@@ -31,25 +34,25 @@ while True:
         # keyboard inputs
         # 2nd nested if statement is to stop perfect 180s
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP or event.key == pygame.K_w:
                 if main_game.player.direction == Vector2(0, 1):
                     pass
                 else:
                     main_game.player.direction = Vector2(0, -1)
 
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 if main_game.player.direction == Vector2(0, -1):
                     pass
                 else:
                     main_game.player.direction = Vector2(0, 1)
 
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 if main_game.player.direction == Vector2(1, 0):
                     pass
                 else:
                     main_game.player.direction = Vector2(-1, 0)
 
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 if main_game.player.direction == Vector2(-1, 0):
                     pass
                 else:
