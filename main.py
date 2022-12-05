@@ -4,6 +4,9 @@ from components import player, computer, point
 cell_size = config.cell_size
 cell_number = config.cell_number
 
+tile = config.tile_sprite
+screen = config.screen
+
 class MAIN:
     def __init__(self) -> None:
         self.player = player.PLAYER()
@@ -22,6 +25,7 @@ class MAIN:
         # self.computer.computer_target(self.point.pos[0], self.point.pos[1])
 
     def draw_elements(self):
+        self.draw_tiles()
         self.point.draw_point()
         self.player.draw_player()
         # self.computer.draw_computer()
@@ -64,3 +68,10 @@ class MAIN:
     def game_over(self):
         pygame.quit()
         sys.exit()
+
+    def draw_tiles(self):
+
+        for row in range(cell_number):
+            for col in range(cell_number):
+                    tile_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
+                    screen.blit(tile, tile_rect)

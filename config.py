@@ -22,3 +22,4 @@ point_sprite = pygame.transform.scale(pygame.image.load("./graphics/point.png").
 snake_head_sprite = pygame.transform.scale(pygame.image.load("./graphics/snake_head.png").convert_alpha(), (cell_size, cell_size))
 snake_body_sprite = pygame.transform.scale(pygame.image.load("./graphics/snake_body.png").convert_alpha(), (cell_size, cell_size))
 snake_butt_sprite = pygame.transform.scale(pygame.image.load("./graphics/snake_butt.png").convert_alpha(), (cell_size, cell_size))
+tile_sprite = pygame.transform.scale(pygame.image.load("./graphics/square.png").convert_alpha(), (cell_size, cell_size))
